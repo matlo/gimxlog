@@ -1,4 +1,4 @@
-# gimxprio
+# gimxlog
 
 Compilation:
 ```
