@@ -29,8 +29,6 @@ typedef enum {
 
 #define GLOG_LEVEL(CTX, LEVEL) (TOKENPASTE(CTX,_log_level) >= E_GLOG_LEVEL_##LEVEL)
 
-#define GLOG_SET_LOG_LEVEL(CTX) void TOKENPASTE(CTX,_set_log_level)(e_glog_level level);
-
 typedef void (* GLOG_CALLBACK)(e_glog_level level);
 
 void glog_register(const char * name, GLOG_CALLBACK callback);
