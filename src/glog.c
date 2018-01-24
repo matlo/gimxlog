@@ -56,7 +56,7 @@ void glog_register(const char * name, GLOG_CALLBACK callback) {
     log->name = strdup(name);
     if (log->name == NULL) {
         // same as above
-        fprintf(stderr, "%s:%d strdup failed with error: %m", __FILE__, __LINE__);
+        fprintf(stderr, "%s:%d strdup failed", __FILE__, __LINE__);
         free(log);
         exit(-1);
     }
