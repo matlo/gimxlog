@@ -43,17 +43,20 @@ void glog_register(const char * name, GLOG_CALLBACK callback) {
 
     struct glog * log = get_log(name);
     if (log != NULL) {
+        // do not check the current log level (function is called in constructors)
         fprintf(stderr, "%s:%d log name already used: %s\n", __FILE__, __LINE__, name);
         exit(-1);
     }
     log = calloc(1, sizeof(*log));
     if (log == NULL) {
-        PRINT_ERROR_ALLOC_FAILED("calloc")
+        // same as above
+        fprintf(stderr, "%s:%d calloc failed\n", __FILE__, __LINE__);
         exit(-1);
     }
     log->name = strdup(name);
     if (log->name == NULL) {
-        PRINT_ERROR_OTHER("strdup failed")
+        // same as above
+        fprintf(stderr, "%s:%d strdup failed with error: %m", __FILE__, __LINE__);
         free(log);
         exit(-1);
     }
