@@ -62,7 +62,7 @@ void glog_register(const char * name, GLOG_CALLBACK callback) {
 void glog_set_level(const char * name, e_glog_level level) {
 
     struct glog * log = get_log(name);
-    if (log != NULL) {
+    if (log == NULL) {
         fprintf(stderr, "%s:%d log name not found: %s\n", __FILE__, __LINE__, name);
     } else {
         log->callback(level);
