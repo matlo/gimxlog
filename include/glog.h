@@ -6,6 +6,10 @@
 #ifndef GLOG_H_
 #define GLOG_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define GLOG_STR_HELPER(x) #x
 #define GLOG_STR(x) GLOG_STR_HELPER(x)
 
@@ -36,5 +40,9 @@ void glog_register(const char * name, GLOG_CALLBACK callback);
 void glog_set_level(const char * name, e_glog_level level);
 
 void glog_set_all_levels(e_glog_level level);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* GLOG_H_ */
