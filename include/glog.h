@@ -20,7 +20,8 @@ typedef enum {
   E_GLOG_LEVEL_NONE,
   E_GLOG_LEVEL_ERROR,
   E_GLOG_LEVEL_INFO,
-  E_GLOG_LEVEL_DEBUG
+  E_GLOG_LEVEL_DEBUG,
+  E_GLOG_LEVEL_TRACE
 } e_glog_level;
 
 #define GLOG_INST(CTX) \
