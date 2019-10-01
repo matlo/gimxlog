@@ -13,7 +13,7 @@
 struct glog {
     char * name;
     GLOG_CALLBACK callback;
-    GLIST_LINK(struct glog)
+    GLIST_LINK(struct glog);
 };
 
 static void glog_unregister(struct glog * log) {
@@ -24,7 +24,8 @@ static void glog_unregister(struct glog * log) {
     free(log);
 }
 
-GLIST_INST(struct glog, logs, glog_unregister)
+GLIST_INST(struct glog, logs);
+GLIST_DESTRUCTOR(logs, glog_unregister)
 
 static struct glog * get_log(const char * name) {
 
