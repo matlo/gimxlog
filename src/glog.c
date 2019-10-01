@@ -24,7 +24,7 @@ static void glog_unregister(struct glog * log) {
     free(log);
 }
 
-GLIST_INST(struct glog, logs);
+static GLIST_INST(struct glog, logs);
 GLIST_DESTRUCTOR(logs, glog_unregister)
 
 static struct glog * get_log(const char * name) {
