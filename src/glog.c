@@ -18,7 +18,7 @@ struct glog {
 
 static void glog_unregister(struct glog * log) {
 
-    GLIST_REMOVE(logs, log)
+    GLIST_REMOVE(logs, log);
 
     free(log->name);
     free(log);
@@ -57,7 +57,7 @@ void glog_register(const char * name, GLOG_CALLBACK callback) {
         exit(-1);
     }
     log->callback = callback;
-    GLIST_ADD(logs, log)
+    GLIST_ADD(logs, log);
 }
 
 void glog_set_level(const char * name, e_glog_level level) {
